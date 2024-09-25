@@ -2,6 +2,7 @@
 
 import FormInput from '@/src/components/form/FormInput';
 import FormWrapper from '@/src/components/form/FormWrapper';
+import Loading from '@/src/components/ui/Loading';
 import { useUserRegistration } from '@/src/hooks/auth.hook';
 import registerValidationSchema from '@/src/schema/register.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -29,51 +30,54 @@ export default function RegisterPage() {
   //   }
 
   return (
-    <div className='flex h-[calc(100vh-100px)] flex-col items-center justify-center'>
-      <h3 className='my-2 text-xl font-bold'>Register with FoundX</h3>
-      <p className='mb-4'>Help Lost Items Find Their Way Home</p>
-      <div className='w-[35%]'>
-        <FormWrapper
-          //! Only for development
-          defaultValues={{
-            name: 'IsaT',
-            email: 'isat@gmail.com',
-            mobileNumber: '01711223344',
-            password: '123456',
-          }}
-          resolver={zodResolver(registerValidationSchema)}
-          onSubmit={onSubmit}
-        >
-          <div className='py-3'>
-            <FormInput label='Name' name='name' size='sm' />
-          </div>
-          <div className='py-3'>
-            <FormInput label='Email' name='email' size='sm' />
-          </div>
-          <div className='py-3'>
-            <FormInput label='Mobile Number' name='mobileNumber' size='sm' />
-          </div>
-          <div className='py-3'>
-            <FormInput
-              label='Password'
-              name='password'
-              size='sm'
-              type='password'
-            />
-          </div>
-
-          <Button
-            className='my-3 w-full rounded-md bg-default-900 text-default'
-            size='lg'
-            type='submit'
+    <>
+      {isPending && <Loading />}
+      <div className='flex h-[calc(100vh-100px)] flex-col items-center justify-center'>
+        <h3 className='my-2 text-xl font-bold'>Register with FoundX</h3>
+        <p className='mb-4'>Help Lost Items Find Their Way Home</p>
+        <div className='w-[35%]'>
+          <FormWrapper
+            //! Only for development
+            defaultValues={{
+              name: 'IsaT',
+              email: 'isat@gmail.com',
+              mobileNumber: '01711223344',
+              password: '123456',
+            }}
+            resolver={zodResolver(registerValidationSchema)}
+            onSubmit={onSubmit}
           >
-            Registration
-          </Button>
-        </FormWrapper>
-        <div className='text-center'>
-          Already have an account ? <Link href={'/login'}>Login</Link>
+            <div className='py-3'>
+              <FormInput label='Name' name='name' size='sm' />
+            </div>
+            <div className='py-3'>
+              <FormInput label='Email' name='email' size='sm' />
+            </div>
+            <div className='py-3'>
+              <FormInput label='Mobile Number' name='mobileNumber' size='sm' />
+            </div>
+            <div className='py-3'>
+              <FormInput
+                label='Password'
+                name='password'
+                size='sm'
+                type='password'
+              />
+            </div>
+
+            <Button
+              className='my-3 w-full rounded-md bg-default-900 text-default'
+              size='lg'
+              type='submit'
+            >
+              Registration
+            </Button>
+          </FormWrapper>
+          <div className='text-center'>
+            Already have an account ? <Link href={'/login'}>Login</Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

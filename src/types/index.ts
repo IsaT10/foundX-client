@@ -30,9 +30,9 @@ export interface IUser {
   status: string;
   mobileNumber: string;
   profilePhoto: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
 }
 export interface ICategory {
   _id: string;
