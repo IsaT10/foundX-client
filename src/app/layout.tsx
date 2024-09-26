@@ -7,6 +7,7 @@ import { siteConfig } from '@/src/config/site';
 import { fontSans } from '@/src/config/fonts';
 import { Navbar } from '@/src/components/ui/navbar';
 import { Providers } from '../lib/providers';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: {

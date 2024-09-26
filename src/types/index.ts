@@ -39,7 +39,17 @@ export interface ICategory {
   name: string;
   postCount: number;
   isDeleted: boolean;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+}
+
+export interface IInput {
+  variant?: 'flat' | 'bordered' | 'faded' | 'underlined';
+  size?: 'sm' | 'md' | 'lg';
+  required?: boolean;
+  type?: string;
+  label: string;
+  name: string;
+  disabled?: boolean;
 }

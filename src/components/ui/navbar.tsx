@@ -18,14 +18,7 @@ import clsx from 'clsx';
 
 import { siteConfig } from '@/src/config/site';
 import { ThemeSwitch } from '@/src/components/ui/theme-switch';
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from '@/src/components/icons';
+import { SearchIcon, Logo } from '@/src/components/icons';
 import NavbarDropdown from './NavbarDropdown';
 import { useUser } from '@/src/context/user.provider';
 
@@ -93,7 +86,9 @@ export const Navbar = () => {
           </NavbarItem>
         ) : (
           <NavbarItem className='hidden sm:flex gap-2'>
-            <Link href='/login'>Login</Link>
+            <Link href='/login'>
+              <Button>Login</Button>
+            </Link>
           </NavbarItem>
         )}
       </NavbarContent>
